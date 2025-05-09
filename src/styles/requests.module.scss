@@ -83,7 +83,11 @@ background-color: #fff;
         }
     }
   }
-  
+  .noteConsultationBtn {
+    color: #444; background-color: #eee;    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+  }
   .cardHeader {
     display: flex;
     justify-content: space-between;

@@ -7,11 +7,23 @@ import {
   FaTrash,
   FaTimesCircle,
   FaClock,
+  FaEye,
+  FaPage4,
+  FaFile,
+  FaFileAlt,
 } from "react-icons/fa";
 import moment from "moment";
+import Modal from "./Modal";
+import { useState } from "react";
 
 export default function ListRequestCard({ _delete, edit, req, onAction }) {
   const isAdmin = useIsAdmin();
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
 
   return (
     <div key={req.id} className={requestStyles.card}>
@@ -25,8 +37,16 @@ export default function ListRequestCard({ _delete, edit, req, onAction }) {
         ) : (
           <FaClock />
         )}
-        <span>{req.status}</span>
-      </div>
+        <span>{req.status}</span>{" "}
+      </div>{" "}
+      {req.status != "pending" && (
+        <button
+          className={requestStyles.noteConsultationBtn}
+          onClick={toggleModal}
+        >
+          <FaFileAlt />{" "}
+        </button>
+      )}
       <div className={requestStyles.cardHeader}>
         <h3>
           {req.title}
@@ -70,6 +90,10 @@ export default function ListRequestCard({ _delete, edit, req, onAction }) {
           <FaTrash />
         </button>
       </div>
+      <Modal isOpen={isModalOpen} onClose={toggleModal}>
+        <h2>Note</h2>
+        <p>{req.note || "No note available."}</p>
+      </Modal>
     </div>
   );
 }
