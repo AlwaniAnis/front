@@ -1,0 +1,33 @@
+@import 'variables';
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  
+  .pageButton {
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+  color:$text-color;
+    &:hover:not(:disabled) {
+      background-color: #e0e0e0;
+    }
+  
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+  
+  .active {
+    background-color: $primary-color;
+    color: white;
+    font-weight: bold;
+    border-color: $primary-color;
+  }
+  

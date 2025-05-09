@@ -1,0 +1,203 @@
+
+@use './variables' as *;
+.page {
+    padding: 2rem;
+width: 96%;
+margin: 0 auto;
+    max-width: 1200px;
+
+ 
+    margin-bottom: 2rem;
+   
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    & >h2 i {font-weight: 500; font-size: 16px; color: #444;letter-spacing: 2px;}
+  }
+  
+  .addButton {
+    padding: 0.5rem 1rem;
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+    //__________ the card style
+  .card { position: relative;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    .actions {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 1rem;
+
+        button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+margin: 2px;
+background-color: #fff;
+            &.accept {
+                color: $primary-color;
+                border:1px solid $primary-color;
+                &:hover {
+                    background-color: rgba($primary-color, 0.1);
+                    color: darken($primary-color, 10%);
+                  }
+            }
+
+            &.delete {
+                background-color: rgba($error-color,0.2);
+                color: $error-color;
+            }
+
+            &.edit {
+                background-color: #eee;
+                color: $text-color;
+            }
+
+            &.reject {
+              color: #ff9800;
+              border:1px solid #ff9800 ;
+              &:hover {
+                background-color: rgba(#ff9800, 0.1);
+                color: darken(#ff9800, 10%);
+              }
+            }
+        }
+    }
+  }
+  
+  .cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed #ccc;
+    padding: 10px 0;
+    i {
+        font-size: 13px;
+        font-weight: 400;
+        color: #777; letter-spacing: 2px;
+    }
+  }
+  
+  .description {
+    margin: 1rem 0;
+    color: #555;
+  }
+  
+  .meta {
+    border-top: 1px dashed #ccc;
+    padding-top: 10px;
+    font-size: 0.9rem;
+    color: #777;
+     span {
+        padding: 6px 12px;
+      font-weight: bold;
+     
+      color:$primary-color;    }
+  }
+  
+  .badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+  }
+  .statusBadge {
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: bold; background-color: rgba(#4caf50, 1);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    span {
+      margin-left: 0.5rem;
+    }
+    &.pending {
+      background-color: #ff9800
+
+    }
+    &.validated {
+      background-color: #4caf50
+    }
+    &.rejected {
+      background-color: #f44336
+    }
+    // position: absolute; top:-15px; left: 0px;
+  }
+  .normal {
+  color: #4caf50;
+  background-color: rgba(#4caf50, 0.1);
+  }
+  
+  .urgent {
+color: #ff9800;
+background-color: rgba(#ff9800, 0.1);
+
+  }
+  
+  .critical {
+   color: #f44336;
+   background-color: rgba(#f44336, 0.1);
+
+  }
+
+  .filterContainer {    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    input {height: 42px;}
+    button{height: 42px; margin-top: 10px;}
+    & >div {
+        flex:1; margin :4px
+     
+        
+       
+    }
+  }
+@media (max-width: 780px) {
+    .page {
+        padding: 1rem;
+        width: 100%;
+    }
+
+   
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    
+
+    .filterContainer {
+        flex-direction: column;
+        align-items: stretch;
+        input, button {
+            width: 100%;
+            margin-bottom: 0.5rem;
+        }
+    }
+}
