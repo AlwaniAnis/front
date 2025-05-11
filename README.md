@@ -115,6 +115,30 @@ Protected routes require valid authentication and are gated using a wrapper in `
 - Access control logic (e.g., admin check) is in `useIsAdmin`.
 
 ---
+## Application Screenshots
+
+Below are some example screenshots of the app:
+
+### 1. Login Page:
+![Login Page](./images/5.png)
+
+### 2. Register Page:
+![Register Page](./images/6.png)
+
+### 3. Request Page (User):
+![Request Page](./images/1.png)
+
+### 4. Adding a Request:
+![Adding Request](./images/2.png)
+
+### 5. Rejection or Validation Note:
+![Rejection or Validation Note](./images/3.png)
+
+### 6. Requests Page (Admin):
+![Requests Page (Admin)](./images/4.png)
+
+### 7. Validate or Reject Action (Admin):
+![Validate or Reject (Admin)](./images/7.png)
 
 ## 📄 License
 
