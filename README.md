@@ -1,40 +1,123 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
 
-## Getting Started
+# Enterprise Help Desk Solution
 
-First, run the development server:
+**Enterprise Help Desk Solution** is a full-featured, scalable support system built with **Next.js**. It includes **authentication**, **real-time notifications**, **modular SCSS styling**, and a clean, maintainable architecture. 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Designed for enterprise-grade help desk workflows, the app supports **public and protected routes**, real-time communication using **WebSockets**, and API integration via **Axios**.
+
+---
+
+## 🚀 Features
+
+- 🔒 Public & protected routing (`/public/login`, `/public/register`, `/protected/requests`)
+- 📡 Real-time notifications via WebSocket (`socket.io-client`)
+- 🎨 Theming support with SCSS variables
+- 🧩 Modular architecture with reusable components and services
+- 🔌 Axios instance with interceptors for API handling
+- 🛎 Toast notifications with `react-toastify`
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+├── config/              # Configuration files
+│   └── api.js           # Axios configuration (baseURL, interceptors, etc.)
+├── hooks/               # Custom React hooks
+│   ├── useAuth.js       # Auth context and hooks
+│   ├── useIsAdmin.js    # Role-based access control
+│   └── useSocket.js     # WebSocket setup
+├── models/              # Data models and DTOs
+├── pages/
+│   ├── public/
+│   │   ├── login.js     # Login screen (public)
+│   │   └── register.js  # Registration screen (public)
+│   └── protected/
+│       └── requests.js  # Authenticated help desk requests page
+├── services/            # API service handlers
+├── styles/              # SCSS modules
+│   └── _variables.scss  # Global theme variables
+├── ui/                  # Reusable UI components
+└── ...
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## 🧪 Tech Stack
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- **Next.js** – App framework
+- **Sass + CSS Modules** – Scoped and themeable styles
+- **Axios** – HTTP requests with interceptors
+- **Socket.IO Client** – WebSocket-based live updates
+- **React Icons** – SVG icons
+- **React Toastify** – Toast alerts
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🔐 Routing Overview
 
-## Learn More
+| Route                  | Type      | Description               |
+|------------------------|-----------|---------------------------|
+| `/public/login`        | Public    | Login page                |
+| `/public/register`     | Public    | User registration page    |
+| `/protected/requests`  | Protected | Authenticated request UI  |
 
-To learn more about Next.js, take a look at the following resources:
+Protected routes require valid authentication and are gated using a wrapper in `_app.js` or a higher-order component.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## 📦 Key Packages
+
+```json
+{
+  "react-icons": "^5.5.0",
+  "react-toastify": "^11.0.5",
+  "socket.io-client": "^4.8.1" , 
+}
+```
+
+---
+
+## 🛠 Getting Started
+
+1. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+2. **Run development server**
+   ```bash
+   npm run dev
+   ```
+
+3. **Build for production**
+   ```bash
+   npm run build
+   ```
+
+4. **Start production server**
+   ```bash
+   npm start
+   ```
+
+---
+
+## 📘 Notes
+
+- Axios configuration (base URL, auth headers, interceptors) is centralized in `src/config/api.js`.
+- Theming is handled via SCSS variables in `styles/_variables.scss`.
+- WebSocket logic is encapsulated in `useSocket`.
+- Access control logic (e.g., admin check) is in `useIsAdmin`.
+
+---
+
+## 📄 License
+
+MIT
+
+---
